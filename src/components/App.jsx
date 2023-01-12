@@ -1,4 +1,5 @@
 import { Costs } from './Costs/Costs';
+import { NewCost } from './NewCost/NewCost';
 
 export const App = () => {
   const costs = [
@@ -21,6 +22,7 @@ export const App = () => {
 
   return (
     <div>
+      <NewCost />
       <Costs costs={costs} />
     </div>
   );
