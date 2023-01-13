@@ -14,11 +14,11 @@ export const Costs = ({ costs }) => {
   return (
     <CostsWrapper>
       <CostsFilter year={selectedYear} onChangeYear={yearChangeHandler} />
-      {costs.map((item, index) => (
+      {costs.map((cost, index) => (
         <CostItem
-          date={item.date}
-          title={item.title}
-          price={item.price}
+          date={cost.date}
+          description={cost.description}
+          amount={cost.amount}
           key={index}
         />
       ))}

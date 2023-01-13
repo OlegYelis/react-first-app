@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { Actions, ControlsWrapper, Controls } from './CostForm.styled';
 
 export const CostForm = ({ onSaveCostData }) => {
-  const [inputName, setInputName] = useState('');
-  const [inputSum, setInputSum] = useState('');
+  const [inputDescription, setinputDescription] = useState('');
+  const [inputAmount, setinputAmount] = useState('');
   const [inputDate, setInputDate] = useState('');
 
   const nameChangeHandler = evt => {
-    setInputName(evt.target.value);
+    setinputDescription(evt.target.value);
   };
 
   const sumChangeHandler = evt => {
-    setInputSum(evt.target.value);
+    setinputAmount(evt.target.value);
   };
 
   const dateChangeHandler = evt => {
@@ -22,14 +22,14 @@ export const CostForm = ({ onSaveCostData }) => {
     evt.preventDefault();
 
     const costData = {
-      name: inputName,
-      sum: inputSum,
+      description: inputDescription,
+      amount: inputAmount,
       date: new Date(inputDate),
     };
 
     onSaveCostData(costData);
-    setInputName('');
-    setInputSum('');
+    setinputDescription('');
+    setinputAmount('');
     setInputDate('');
   };
 
@@ -38,7 +38,11 @@ export const CostForm = ({ onSaveCostData }) => {
       <ControlsWrapper>
         <Controls>
           <label>Name</label>
-          <input type="text" value={inputName} onChange={nameChangeHandler} />
+          <input
+            type="text"
+            value={inputDescription}
+            onChange={nameChangeHandler}
+          />
         </Controls>
         <Controls>
           <label>Sum</label>
@@ -46,7 +50,7 @@ export const CostForm = ({ onSaveCostData }) => {
             type="number"
             min="0.01"
             step="0.01"
-            value={inputSum}
+            value={inputAmount}
             onChange={sumChangeHandler}
           />
         </Controls>
