@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Actions, ControlsWrapper, Controls } from './CostForm.styled';
 
-export const CostForm = () => {
+export const CostForm = ({ onSaveCostData }) => {
   const [inputName, setInputName] = useState('');
   const [inputSum, setInputSum] = useState('');
   const [inputDate, setInputDate] = useState('');
@@ -27,7 +27,7 @@ export const CostForm = () => {
       date: new Date(inputDate),
     };
 
-    console.log(costData);
+    onSaveCostData(costData);
     setInputName('');
     setInputSum('');
     setInputDate('');

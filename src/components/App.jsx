@@ -20,9 +20,13 @@ export const App = () => {
     },
   ];
 
+  const addCostHandler = cost => {
+    console.log(cost);
+  };
+
   return (
     <div>
-      <NewCost />
+      <NewCost onAddCost={addCostHandler} />
       <Costs costs={costs} />
     </div>
   );
