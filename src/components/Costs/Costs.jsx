@@ -1,27 +1,23 @@
 import React, { useState } from 'react';
-import { CostsFilter } from 'components/Costs/CostFilter/CostFilter';
-import { CostItem } from 'components/Costs/CostItem/CostItem';
 import { CostsWrapper } from './Costs.styled';
+import { CostsFilter } from 'components/Costs/CostFilter/CostFilter';
+import { CostsList } from './CostsList/CostsList';
 
 export const Costs = ({ costs }) => {
   const [selectedYear, setSelectedYear] = useState('2023');
 
   const yearChangeHandler = year => {
-    console.log(year);
     setSelectedYear(year);
   };
+
+  const filteredCosts = costs.filter(
+    cost => cost.date.getFullYear().toString() === selectedYear
+  );
 
   return (
     <CostsWrapper>
       <CostsFilter year={selectedYear} onChangeYear={yearChangeHandler} />
-      {costs.map((cost, index) => (
-        <CostItem
-          date={cost.date}
-          description={cost.description}
-          amount={cost.amount}
-          key={index}
-        />
-      ))}
+      <CostsList costs={filteredCosts} />
     </CostsWrapper>
   );
 };

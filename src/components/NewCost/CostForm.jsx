@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { Actions, ControlsWrapper, Controls } from './CostForm.styled';
 
-export const CostForm = ({ onSaveCostData }) => {
-  const [inputDescription, setinputDescription] = useState('');
-  const [inputAmount, setinputAmount] = useState('');
+export const CostForm = ({ onSaveCostData, onCancel }) => {
+  const [inputDescription, setInputDescription] = useState('');
+  const [inputAmount, setInputAmount] = useState('');
   const [inputDate, setInputDate] = useState('');
 
   const nameChangeHandler = evt => {
-    setinputDescription(evt.target.value);
+    setInputDescription(evt.target.value);
   };
 
   const sumChangeHandler = evt => {
-    setinputAmount(evt.target.value);
+    setInputAmount(evt.target.value);
   };
 
   const dateChangeHandler = evt => {
@@ -28,8 +28,8 @@ export const CostForm = ({ onSaveCostData }) => {
     };
 
     onSaveCostData(costData);
-    setinputDescription('');
-    setinputAmount('');
+    setInputDescription('');
+    setInputAmount('');
     setInputDate('');
   };
 
@@ -67,6 +67,9 @@ export const CostForm = ({ onSaveCostData }) => {
 
         <Actions>
           <button type="submit">Add costs</button>
+          <button type="button" onClick={onCancel}>
+            Cancel
+          </button>
         </Actions>
       </ControlsWrapper>
     </form>
