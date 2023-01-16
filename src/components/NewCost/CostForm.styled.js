@@ -6,6 +6,7 @@ export const ControlsWrapper = styled.div`
   gap: 1rem;
   margin-bottom: 1rem;
   text-align: left;
+  align-items: center;
 `;
 
 export const Controls = styled.div`
@@ -27,4 +28,5 @@ export const Controls = styled.div`
 
 export const Actions = styled.div`
   text-align: left;
+  margin: 0 auto;
 `;

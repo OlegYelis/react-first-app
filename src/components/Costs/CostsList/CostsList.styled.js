@@ -6,6 +6,6 @@ export const List = styled.ul`
 `;
 
 export const Fallback = styled.h2`
-  color: #fefae1;
+  color: #ffffff;
   text-align: center;
 `;

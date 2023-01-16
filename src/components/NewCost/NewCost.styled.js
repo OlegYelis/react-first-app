@@ -16,7 +16,7 @@ export const NewCostWrapper = styled.div`
     padding: 1rem 2rem;
     border: 1px solid #2a5b84;
     background-color: #2a5b84;
-    color: #fefae1;
+    color: #ffffff;
     border-radius: 10px;
     margin-right: 3px;
   }

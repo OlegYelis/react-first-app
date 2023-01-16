@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { CostsWrapper } from './Costs.styled';
 import { CostsFilter } from 'components/Costs/CostFilter/CostFilter';
 import { CostsList } from './CostsList/CostsList';
+import { CostsDiagram } from './Diagram/CostsDiagram';
 
 export const Costs = ({ costs }) => {
   const [selectedYear, setSelectedYear] = useState('2023');
@@ -17,6 +18,7 @@ export const Costs = ({ costs }) => {
   return (
     <CostsWrapper>
       <CostsFilter year={selectedYear} onChangeYear={yearChangeHandler} />
+      <CostsDiagram costs={filteredCosts} />
       <CostsList costs={filteredCosts} />
     </CostsWrapper>
   );
