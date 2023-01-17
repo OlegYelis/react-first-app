@@ -6,20 +6,44 @@ export const CostForm = ({ onSaveCostData, onCancel }) => {
   const [inputAmount, setInputAmount] = useState('');
   const [inputDate, setInputDate] = useState('');
 
+  const [isDescrValid, setIsDescrValid] = useState(true);
+  const [isAmountValid, setIsAmountValid] = useState(true);
+  const [isDataValid, setIsDataValid] = useState(true);
+
   const nameChangeHandler = evt => {
     setInputDescription(evt.target.value);
+    setIsDescrValid(true);
   };
 
   const sumChangeHandler = evt => {
     setInputAmount(evt.target.value);
+    setIsAmountValid(true);
   };
 
   const dateChangeHandler = evt => {
     setInputDate(evt.target.value);
+    setIsDataValid(true);
   };
 
   const submitHandler = evt => {
     evt.preventDefault();
+
+    if (
+      inputDescription.trim().length === 0 ||
+      inputAmount.trim().length === 0 ||
+      inputDate.trim().length === 0
+    ) {
+      if (inputDescription.trim().length === 0) {
+        setIsDescrValid(false);
+      }
+      if (inputAmount.trim().length === 0) {
+        setIsAmountValid(false);
+      }
+      if (inputDate.trim().length === 0) {
+        setIsDataValid(false);
+      }
+      return;
+    }
 
     const costData = {
       description: inputDescription,
@@ -36,7 +60,7 @@ export const CostForm = ({ onSaveCostData, onCancel }) => {
   return (
     <form onSubmit={submitHandler}>
       <ControlsWrapper>
-        <Controls>
+        <Controls invalid={!isDescrValid}>
           <label>Name</label>
           <input
             type="text"
@@ -44,7 +68,7 @@ export const CostForm = ({ onSaveCostData, onCancel }) => {
             onChange={nameChangeHandler}
           />
         </Controls>
-        <Controls>
+        <Controls invalid={!isAmountValid}>
           <label>Sum</label>
           <input
             type="number"
@@ -54,7 +78,7 @@ export const CostForm = ({ onSaveCostData, onCancel }) => {
             onChange={sumChangeHandler}
           />
         </Controls>
-        <Controls>
+        <Controls invalid={!isDataValid}>
           <label>Date</label>
           <input
             type="date"

@@ -14,6 +14,7 @@ export const Controls = styled.div`
     font-weight: bold;
     margin-bottom: 0.5rem;
     display: block;
+    color: ${props => (props.invalid ? 'red' : 'inherit')};
   }
 
   input {
@@ -23,6 +24,7 @@ export const Controls = styled.div`
     border: 1px solid #ccc;
     width: 20rem;
     max-width: 100%;
+    outline: ${props => (props.invalid ? '1px solid red' : 'inherit')};
   }
 `;
 
