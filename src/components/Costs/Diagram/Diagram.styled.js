@@ -8,4 +8,8 @@ export const DiagramWrapper = styled.div`
   display: flex;
   justify-content: space-around;
   height: 10rem;
+
+  @media screen and (max-width: 400px) {
+    height: 7rem;
+  }
 `;
