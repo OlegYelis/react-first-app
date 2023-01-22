@@ -19,7 +19,7 @@ export const CostsDiagram = ({ costs }) => {
   for (const cost of costs) {
     const costMonth = cost.date.getMonth();
 
-    diagramDataSets[costMonth].value += cost.amount;
+    diagramDataSets[costMonth].value += Number(cost.amount);
   }
 
   return <Diagram dataSets={diagramDataSets} />;
